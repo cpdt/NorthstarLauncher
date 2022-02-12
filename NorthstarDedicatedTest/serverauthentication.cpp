@@ -50,7 +50,6 @@ CServerGameDLL__OnReceivedSayTextMessageType CServerGameDLL__OnReceivedSayTextMe
 typedef void (*ConCommand__DispatchType)(ConCommand* command, const CCommand& args, void* a3);
 ConCommand__DispatchType ConCommand__Dispatch;
 
-
 // global vars
 ServerAuthenticationManager* g_ServerAuthenticationManager;
 
@@ -263,7 +262,8 @@ void ServerAuthenticationManager::WritePersistentData(void* player)
 	}
 }
 
-bool ServerAuthenticationManager::CheckPlayerChatRatelimit(void* player) {
+bool ServerAuthenticationManager::CheckPlayerChatRatelimit(void* player)
+{
 	if (Plat_FloatTime() - m_additionalPlayerData[player].lastSayTextLimitStart >= 1.0)
 	{
 		m_additionalPlayerData[player].lastSayTextLimitStart = Plat_FloatTime();
