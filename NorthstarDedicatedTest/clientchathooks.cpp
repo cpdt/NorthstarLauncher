@@ -17,6 +17,8 @@ struct ChatTags
 
 static void CHudChat__AddGameLineHook(void* self, const char* message, int inboxId, bool isTeam, bool isDead)
 {
+	CHudChat__AddGameLine(self, message, inboxId, isTeam, isDead);
+
 	// This hook is called for each HUD, but we only want our logic to run once.
 	if (!IsFirstHud(self))
 	{
